@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class ViewController: UIViewController {
    
     var movieViewModel: MovieViewModel = MovieViewModel()
-    
+    var isSearching = false
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -80,28 +80,32 @@ class ViewController: UIViewController{
         let detailViewModel = DetailViewModel(photoModel: cellId)
         let detailViewController = DetailsViewController(detailViewModel: detailViewModel)
         self.navigationController?.pushViewController(detailViewController, animated: true)
-        
     }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return movieViewModel.numberOfSection()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieViewModel.numberOfRowa(section: section)
+        if isSearching {
+            return movieViewModel.searchNameArray.count
+        } else {
+            return movieViewModel.numberOfRowa(section: section)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if movieViewModel.curretnPage < movieViewModel.total_pages && indexPath.row == movieViewModel.photoArray.count - 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "loading", for: indexPath)
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! customPhotoCellTableViewCell
+        if isSearching {
+            let photos = movieViewModel.searchNameArray[indexPath.row]
+            cell.photoArray = photos
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! customPhotoCellTableViewCell
             let photos = movieViewModel.photoArray[indexPath.row]
             cell.photoArray = photos
-            return cell
         }
+            return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -120,6 +124,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ViewController: UISearchBarDelegate {
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        isSearching = true
+        movieViewModel.retrieveSearchedName(searchText: searchText)
+        tableView.reloadData()
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = searchBar.text, !query.isEmpty else {
             return
@@ -132,6 +142,7 @@ extension ViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
         searchBar.text = ""
     }
 }

@@ -12,6 +12,7 @@ class MovieViewModel {
     var isLoading:Observable<Bool> = Observable(value: false)
     var refresh:Observable<Bool> = Observable(value: false)
     var photoArray = [PhotoModel]()
+    var searchNameArray: [PhotoModel] = []
     var total_pages = 1
     var curretnPage = 1
     func getMoviesData(isRefresh: Bool, page: Int, completion: @escaping () -> Void) {
@@ -23,14 +24,14 @@ class MovieViewModel {
         }
         isLoading.value = true
         ApiFetchService().fetchMoviesData(page: page) { [weak self] result in
-          //  self?.isLoading.value = false
+            //  self?.isLoading.value = false
             if isRefresh {
                 self?.refresh.value = false
             }
             switch result {
             case .success(let data):
                 self?.photoArray = data
-             //   self?.total_pages = data.totalPages
+                //   self?.total_pages = data.totalPages
             case .failure(let error):
                 print(error)
             }
@@ -49,7 +50,6 @@ class MovieViewModel {
             }
             completion()
         }
-        
     }
     
     func numberOfSection()-> Int {
@@ -63,5 +63,9 @@ class MovieViewModel {
     func retrieveId(photoId: Int) -> PhotoModel? {
         let photo = photoArray.first(where: {$0.id == photoId})
         return photo
+    }
+    
+    func retrieveSearchedName(searchText: String) {
+        searchNameArray = photoArray.filter({$0.title.lowercased().prefix(searchText.count) == searchText.lowercased()})
     }
 }

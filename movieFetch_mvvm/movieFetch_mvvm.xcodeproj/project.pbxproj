@@ -14,8 +14,6 @@
 		B1E7EEED2BF3C7B600C11584 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E7EEEC2BF3C7B600C11584 /* Assets.xcassets */; };
 		B1E7EEF02BF3C7B600C11584 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B1E7EEEF2BF3C7B600C11584 /* Base */; };
 		B1E7EEFB2BF3C7B700C11584 /* movieFetch_mvvmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7EEFA2BF3C7B700C11584 /* movieFetch_mvvmTests.swift */; };
-		B1E7EF052BF3C7B700C11584 /* movieFetch_mvvmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7EF042BF3C7B700C11584 /* movieFetch_mvvmUITests.swift */; };
-		B1E7EF072BF3C7B700C11584 /* movieFetch_mvvmUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7EF062BF3C7B700C11584 /* movieFetch_mvvmUITestsLaunchTests.swift */; };
 		B1E7EF182BF3C81100C11584 /* TrendingMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7EF172BF3C81100C11584 /* TrendingMoviesModel.swift */; };
 		B1E7EF1A2BF3C88000C11584 /* ApiFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7EF192BF3C88000C11584 /* ApiFetchService.swift */; };
 		B1E7EF1C2BF3CA8600C11584 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7EF1B2BF3CA8600C11584 /* MovieViewModel.swift */; };
@@ -58,8 +56,6 @@
 		B1E7EEF62BF3C7B700C11584 /* movieFetch_mvvmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movieFetch_mvvmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E7EEFA2BF3C7B700C11584 /* movieFetch_mvvmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieFetch_mvvmTests.swift; sourceTree = "<group>"; };
 		B1E7EF002BF3C7B700C11584 /* movieFetch_mvvmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = movieFetch_mvvmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1E7EF042BF3C7B700C11584 /* movieFetch_mvvmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieFetch_mvvmUITests.swift; sourceTree = "<group>"; };
-		B1E7EF062BF3C7B700C11584 /* movieFetch_mvvmUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieFetch_mvvmUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B1E7EF172BF3C81100C11584 /* TrendingMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMoviesModel.swift; sourceTree = "<group>"; };
 		B1E7EF192BF3C88000C11584 /* ApiFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiFetchService.swift; sourceTree = "<group>"; };
 		B1E7EF1B2BF3CA8600C11584 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
@@ -108,7 +104,6 @@
 				B1E7EF142BF3C7C700C11584 /* ViewModel */,
 				B1E7EF132BF3C7C000C11584 /* Model */,
 				B1E7EEF92BF3C7B700C11584 /* movieFetch_mvvmTests */,
-				B1E7EF032BF3C7B700C11584 /* movieFetch_mvvmUITests */,
 				B1E7EEE12BF3C7B400C11584 /* Products */,
 				B1E7EF222BF3DE8C00C11584 /* Frameworks */,
 			);
@@ -144,15 +139,6 @@
 				B1E7EEFA2BF3C7B700C11584 /* movieFetch_mvvmTests.swift */,
 			);
 			path = movieFetch_mvvmTests;
-			sourceTree = "<group>";
-		};
-		B1E7EF032BF3C7B700C11584 /* movieFetch_mvvmUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B1E7EF042BF3C7B700C11584 /* movieFetch_mvvmUITests.swift */,
-				B1E7EF062BF3C7B700C11584 /* movieFetch_mvvmUITestsLaunchTests.swift */,
-			);
-			path = movieFetch_mvvmUITests;
 			sourceTree = "<group>";
 		};
 		B1E7EF132BF3C7C000C11584 /* Model */ = {
@@ -372,8 +358,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1E7EF072BF3C7B700C11584 /* movieFetch_mvvmUITestsLaunchTests.swift in Sources */,
-				B1E7EF052BF3C7B700C11584 /* movieFetch_mvvmUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
